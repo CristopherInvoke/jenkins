@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd        
+	http://camel.apache.org/schema/spring       
+	http://camel.apache.org/schema/spring/camel-spring-2.25.3.xsd">
+
+	<import resource="bean-definitions.xml" />
+
+	<camelContext id="conectores-servicios-aes"
+		xmlns="http://camel.apache.org/schema/spring"
+		xmlns:order="http://com.ofbox/examples/parse">
+		<package>sv.gob.bfa.conectores.servicios.aes.ruta</package>
+	</camelContext>
+
+</beans>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@172.16.7.23:1524:BU1" />
+		<property name="username"
+			value="BCAJA" />
+		<property name="password"
+			value="BCAJA" />
+	</bean>
+	<bean class="org.apache.activemq.ActiveMQConnectionFactory" id="activemq-connection-factory">
+        <property name="brokerURL" value="${broker.url}"/>
+        <property name="userName" value="${broker.username}"/>
+        <property name="password" value="${broker.password}"/>
+        <property name="trustAllPackages" value="true"/>
+    </bean>
+    <bean class="org.apache.activemq.camel.component.ActiveMQComponent" id="activemq">
+        <property name="configuration">
+            <bean class="org.apache.activemq.camel.component.ActiveMQConfiguration">
+                <property name="connectionFactory" ref="activemq-connection-factory"/>
+            </bean>
+        </property>
+    </bean>
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <property name="dataSource" ref="dataSourceMadminDs"/>
+    </bean>
+    <bean
+        class="sv.gob.bfa.soporte.comunes.exception.processor.ExceptionProcessor" id="exceptionProcessor">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+     	<bean id="dataSourceMadminDs" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@172.16.7.23:1524:BU1" />
+		<property name="username" value="BCAJA" />
+		<property name="password" value="BCAJA" />
+	</bean> 
+</beans>

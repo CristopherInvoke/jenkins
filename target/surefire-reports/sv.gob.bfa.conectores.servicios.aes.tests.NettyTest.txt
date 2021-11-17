@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: sv.gob.bfa.conectores.servicios.aes.tests.NettyTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.011 sec - in sv.gob.bfa.conectores.servicios.aes.tests.NettyTest

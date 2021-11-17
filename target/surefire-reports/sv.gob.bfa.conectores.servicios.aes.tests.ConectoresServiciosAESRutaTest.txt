@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: sv.gob.bfa.conectores.servicios.aes.tests.ConectoresServiciosAESRutaTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 100.828 sec <<< FAILURE! - in sv.gob.bfa.conectores.servicios.aes.tests.ConectoresServiciosAESRutaTest
+testPagoMqRoute(sv.gob.bfa.conectores.servicios.aes.tests.ConectoresServiciosAESRutaTest)  Time elapsed: 100.826 sec  <<< ERROR!
+java.lang.NullPointerException
+	at sv.gob.bfa.conectores.servicios.aes.tests.ConectoresServiciosAESRutaTest.testPagoMqRoute(ConectoresServiciosAESRutaTest.java:224)
+

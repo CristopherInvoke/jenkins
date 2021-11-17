@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+    
+    <servers>
+        <server>
+            <username>desarrollo</username>
+            <password>D3s4r0ll0.1</password>
+            <id>bfa-desa</id>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>archiva</id>
+            <mirrorOf>*,!repo-taller</mirrorOf>
+            <name>Servidor Archiva ubicado en cato.bfa.local</name>
+            <url>http://cato.bfa.local:8181/repository/desarrollo</url>
+        </mirror>
+    </mirrors>
+    
+    <profiles>
+
+        <profile>
+            <id>desarrollo</id>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <id>bfa-desa</id>
+                    <url>http://cato.bfa.local:8181/repository/bfa-desa</url>
+                    <name>Desarrollo BFA</name>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>RedHatProfile</id>
+            <repositories>
+                <repository>
+                    <id>RedHatGA</id>
+                    <name>Red Hat Public</name>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </snapshots>
+                </repository>
+
+
+                <repository>
+                    <id>RedHatEarly</id>
+                    <name>Red Hat Public</name>
+                    <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+                </repository>
+
+                <repository>
+                    <id>Fuse</id>
+                    <name>Red Hat Public Fuse</name>
+                    <url>https://repo.fusesource.com/nexus/content/groups/public</url>
+                </repository>
+
+
+
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>RedHatGA</id>
+                    <name>Red Hat Public</name>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+    <profile>
+      <id>redhat-ga-repository</id>
+      <repositories>
+        <repository>
+          <id>redhat-ga-repository</id>
+          <name>Red Hat GA repository</name>
+          <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>redhat-ga-repository</id>
+          <name>Red Hat GA repository</name>
+          <url>http://maven.repository.redhat.com/ga/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+  </profiles>
+
+    <activeProfiles>
+        <activeProfile>RedHatProfile</activeProfile>
+        <activeProfile>redhat-ga-repository</activeProfile>
+  </activeProfiles>
+
+</settings>
